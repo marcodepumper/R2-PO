@@ -29,6 +29,47 @@ At present, the repository includes an implementation in **PowerShell**, with ad
 
 The current implementation uses **PowerShell** with the `Az` module to authenticate and retrieve Azure subscriptions. It measures the time taken for authentication and API requests to provide a benchmark of the process.
 
+## Pester Test for PowerShell Implementation
+
+A **Pester** test has been implemented to validate the PowerShell function **Measure-R2PO**. The test ensures that:
+- The function returns a valid object with expected properties.
+- The execution time is greater than zero.
+- The function returns a valid number of Azure subscriptions.
+
+### Example Pester Test:
+
+```powershell
+BeforeAll {
+    . ./Measure-R2PO.ps1
+}
+
+Describe "Measure-R2PO" {
+    
+    It "Returns a valid object with expected properties" {
+        $result = Measure-R2PO
+
+        $result | Should -Not -BeNullOrEmpty
+        $result | Should -BeOfType [PSCustomObject]
+        $result.PSObject.Properties.Name | Should -Contain "AzCmdletCallTimeMs"
+        $result.PSObject.Properties.Name | Should -Contain "SubscriptionCount"
+        $result.PSObject.Properties.Name | Should -Contain "Subscriptions"
+    }
+
+    It "Measures execution time greater than zero" {
+        $result = Measure-R2PO
+
+        $result.AzCmdletCallTimeMs | Should -BeGreaterThan 0
+    }
+
+    It "Returns a valid number of subscriptions" {
+        $result = Measure-R2PO
+
+        $result.Subscriptions | Should -Not -BeNullOrEmpty
+        $result.SubscriptionCount | Should -BeGreaterThan 0
+    }
+}
+```
+
 ## Planned Features
 
 - Extend the current test suite to include additional Azure-related tasks, such as retrieving resource groups and managing resources.
@@ -45,3 +86,4 @@ Once the necessary dependencies for each language are installed, you can run the
 ```powershell
 # Run the Measure-R2PO function
 Measure-R2PO
+```
