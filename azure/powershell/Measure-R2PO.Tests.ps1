@@ -1,5 +1,5 @@
 BeforeAll {
-    . ./Measure-R2PO.ps1
+    . $PSScriptRoot/Measure-R2PO.ps1
 }
 
 Describe "Measure-R2PO" {

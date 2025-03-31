@@ -40,7 +40,7 @@ A **Pester** test has been implemented to validate the PowerShell function **Mea
 
 ```powershell
 BeforeAll {
-    . ./Measure-R2PO.ps1
+    . $PSScriptRoot/Measure-R2PO.ps1
 }
 
 Describe "Measure-R2PO" {
