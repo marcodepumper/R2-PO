@@ -7,9 +7,12 @@ The **R2PO** tool is designed to benchmark and analyze the performance of API ca
 This tool performs a series of tests across the following languages:
 
 - **PowerShell**
+- **Go**
+
+Coming Soon: 
+
 - **Python**
 - **.NET**
-- **Go**
 - **Rust**
 
 By collecting and comparing these performance metrics, **R2PO** provides developers with insights into which programming language is best suited for their Azure-related tasks.
