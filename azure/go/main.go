@@ -13,7 +13,7 @@ import (
 
 type BenchmarkResult struct {
 	SubscriptionsCallTimeMs float64 `json:"SubscriptionsCallTimeMs"`
-	SubscriptionCount       int     `json:"SubscriptionCount"`
+	SubscriptionsCount      int     `json:"SubscriptionsCount"`
 }
 
 func main() {
@@ -54,7 +54,7 @@ func main() {
 	// Create structured result
 	result := BenchmarkResult{
 		SubscriptionsCallTimeMs: apiDuration,
-		SubscriptionCount:       subscriptionCount,
+		SubscriptionsCount:      subscriptionCount,
 	}
 
 	// Convert result to JSON for structured output
