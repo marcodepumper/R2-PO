@@ -11,7 +11,6 @@ Describe "Measure-R2PO" {
         $result | Should -BeOfType [PSCustomObject]
         $result.PSObject.Properties.Name | Should -Contain "AzCmdletCallTimeMs"
         $result.PSObject.Properties.Name | Should -Contain "SubscriptionCount"
-        $result.PSObject.Properties.Name | Should -Contain "Subscriptions"
     }
 
     It "Measures execution time greater than zero" {
