@@ -23,7 +23,6 @@ Describe "Measure-R2PO" {
     It "Returns a valid number of subscriptions" {
         $result = Measure-R2PO
 
-        $result.Subscriptions | Should -Not -BeNullOrEmpty
         $result.SubscriptionCount | Should -BeGreaterThan 0
     }
 }

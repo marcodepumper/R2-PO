@@ -36,7 +36,6 @@ function Measure-R2PO {
         return [PsCustomObject]@{
             AzCmdletCallTimeMs = $azCmdletTime.TotalMilliseconds
             SubscriptionCount = $subscriptions.Count
-            Subscriptions = $subscriptions
         }
     }
     catch {
